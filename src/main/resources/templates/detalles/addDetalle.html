@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-book-open-reader me-2"></i>Detalle</h4>
+            </nav>
+            <div class="container mt-3">
+                <h3 th:text="${titulo}"></h3>
+                <hr>
+                <form th:action="@{/detalle/save}" method="post" enctype="multipart/form-data" th:object="${detalle}">                    
+                    <div class="mb-3">
+                        
+                               
+                        <label for="recipient-name" class="col-form-label">Pedido:</label>
+                        <select th:field="*{producto}" id="nombre" class="form-select">
+                            <option th:each="pr:${producto}" th:value="${pr.id}" th:text="'S/.'+' '+${pr.precio}+'  '+${pr.nombre}"></option>
+                        </select>
+                        
+
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Cantidad:</label>
+                        <input type="text" class="form-control" th:field="*{cantidad}" name="cantidad">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}"
+                               th:errors="*{cantidad}"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Importe:</label>
+                        <input type="text" class="form-control" th:field="*{importe}" name="importe">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('importe')}"
+                               th:errors="*{importe}"></small>
+                    </div>
+                    
+                    </div>
+                    <a th:href="@{/detalle}" class="btn btn-secondary" >Cancel</a>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+            </div>
+        </div>
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+
+    </th:block>
+</body>
+</html>
+

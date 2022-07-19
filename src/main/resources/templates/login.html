@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Iniciar sesión</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/82a228b425.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" th:href="@{/assets/logo.png}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        
+        <div class="container-form sign-up">
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>Bienvenido a Cafe Meraki</h2> 
+                    <p>Si usted es administrador inicie sesión aqui</p>
+                    <button class="sign-up-btn">Iniciar Sesion</button>
+                </div>
+            </div>
+
+            <form  method="POST" th:action="@{/login}"  class="formulario"> 
+                <h2 class="create-account">Vendedor</h2>
+                <div class="iconos">
+                    <div class="border-icon">
+                        <i class='bx bxl-instagram'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-linkedin' ></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-facebook-circle' ></i>
+                    </div>
+                </div>
+                <br>
+                <img src="img/usuario2.png" width="80" height="80" alt=""><br><br>
+                    <label class="form-label" for="form2Example1">Usuario</label>
+                    <input type="text" id="username" class="form-control" name="username"/>                    
+                
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example2">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />                    
+                </div>
+                <div class="d-grid gap-2 col-12 mx-auto mt-4">
+                    <input type="submit" value="Login" class="btn btn-success"/>
+                </div>
+        
+
+            </form>
+        </div>
+        
+        <div class="container-form sign-in">
+            <form  method="POST" th:action="@{/login}"  class="formulario"> 
+                <h2 class="create-account">Administrador</h2>
+                <div class="iconos">
+                    <div class="border-icon">
+                        <i class='bx bxl-instagram'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-linkedin' ></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-facebook-circle' ></i>
+                    </div>
+                </div>
+                <br>
+                <img src="img/usuario1.png" width="80" height="80" alt=""><br><br>
+                    <label class="form-label" for="form2Example1">Usuario</label>
+                    <input type="text" id="username" class="form-control" name="username"/>                    
+                
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example2">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />                    
+                </div>
+                <div class="d-grid gap-2 col-12 mx-auto mt-4">
+                    <input type="submit" value="Login" class="btn btn-success"/>
+                </div>
+        
+
+            </form>
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>Bienvenido Nuevamente</h2>
+                    <p>Si usted es vendedor ingrese aquí</p>
+                    <button class="sign-in-btn">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <script th:src="@{/js/script.js}"></script>
+    </body>
+</html>
